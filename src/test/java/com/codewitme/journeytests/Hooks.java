@@ -26,7 +26,7 @@ public class Hooks {
 	}
 	@BeforeMethod
 	public void BeforeTest() throws IOException{
-		String browser="chrome";
+		String browser=System.getProperty("browser");
 		System.out.println("BeforeTest");
 		String url=propReader.getInstance().getProperty("url");
 		if(browser.equalsIgnoreCase("FIREFOX"))
@@ -34,7 +34,6 @@ public class Hooks {
 			driver = new FirefoxDriver();
 		}
 		else if(browser.equalsIgnoreCase("CHROME")){
-			System.setProperty("webdriver.chrome.driver", "K:\\downloads\\chromedriver_win32\\chromedriver.exe");
 			driver = new ChromeDriver();
 		}
 		driver.get(url);
