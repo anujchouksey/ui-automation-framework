@@ -3,6 +3,7 @@ package com.codewitme.journeytests;
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -25,9 +26,17 @@ public class Hooks {
 	}
 	@BeforeMethod
 	public void BeforeTest() throws IOException{
+		String browser="chrome";
 		System.out.println("BeforeTest");
 		String url=propReader.getInstance().getProperty("url");
-		driver = new FirefoxDriver();
+		if(browser.equalsIgnoreCase("FIREFOX"))
+		{
+			driver = new FirefoxDriver();
+		}
+		else if(browser.equalsIgnoreCase("CHROME")){
+			System.setProperty("webdriver.chrome.driver", "K:\\downloads\\chromedriver_win32\\chromedriver.exe");
+			driver = new ChromeDriver();
+		}
 		driver.get(url);
 		
 	}
