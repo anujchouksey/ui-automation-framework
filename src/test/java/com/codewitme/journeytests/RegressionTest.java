@@ -17,7 +17,7 @@ public class RegressionTest extends Hooks{
 	
 	@Test
 	public void VerifySuccessfullLogin(){
-		String[]expectedPassengerList = {"1","2","3","4"};
+		String[]expectedPassengerList = {"1","2","3","5"};
 		System.out.println("VerifySuccessfullLogin");
 		loginPage = new LoginPage(driver);
 		loginPage.setUsername(propReader.getInstance().getProperty("username"));
