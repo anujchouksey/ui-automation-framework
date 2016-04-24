@@ -3,6 +3,10 @@ package pageobjects;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.codewitme.readers.PropertiesCache;
+import com.codewitme.utilis.WebUtils;
 
 
 public class LoginPage  {
@@ -36,7 +40,7 @@ public class LoginPage  {
 
 	public WelcomePage clickSignIn(){
 		WebElement signinElement = driver.findElement(signin);
-		signinElement.click();
+		WebUtils.click(new WebDriverWait(driver,Integer.parseInt(PropertiesCache.getInstance().getProperty("explicitTime"))), driver, signinElement);
 		return new WelcomePage(driver);
 	}
 }
