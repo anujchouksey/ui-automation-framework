@@ -1,11 +1,15 @@
 package com.codewitme.journeytests;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+
+import com.codewitme.readers.ExcelReader;
 
 import pageobjects.LoginPage;
 import pageobjects.WelcomePage;
@@ -14,9 +18,8 @@ public class RegressionTest extends Hooks{
 
 	LoginPage loginPage;
 	WelcomePage welcomePage;
-	
-	@Test
-	public void VerifySuccessfullLogin(){
+	@Test(enabled=false)
+	public void VerifySuccessfullDefaultLogin() throws IOException{	
 		String[]expectedPassengerList = {"1","2","3","5"};
 		System.out.println("VerifySuccessfullLogin");
 		loginPage = new LoginPage(driver);
@@ -27,5 +30,24 @@ public class RegressionTest extends Hooks{
 		String[] actualPassengerList=welcomePage.getPassengerList();
 		Assert.assertEquals(actualPassengerList, expectedPassengerList);
 		
+	}
+	@Test(dataProvider="custLogin")
+	public void VerifySuccessfullMultipleLogin(String userName,String password) throws IOException{	
+		String[]expectedPassengerList = {"1","2","3","4"};
+		System.out.println("VerifySuccessfullLogin");
+		loginPage = new LoginPage(driver);
+		loginPage.setUsername(userName);
+		loginPage.setPassword(userName);
+		loginPage.clickSignIn();
+		welcomePage=new WelcomePage(driver);
+		String[] actualPassengerList=welcomePage.getPassengerList();
+		Assert.assertEquals(actualPassengerList, expectedPassengerList);
+		
+	}
+	@DataProvider(name="custLogin")
+	public Object[][] loginData() throws IOException {
+		ExcelReader readr=new ExcelReader();
+		Object[][] arrayObject = readr.getData("LoginTest");
+		return arrayObject;
 	}
 }

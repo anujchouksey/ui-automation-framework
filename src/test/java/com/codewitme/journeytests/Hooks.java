@@ -10,13 +10,14 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
-import com.codewitme.readers.PropertiesCache;
+import com.codewitme.readers.ExcelReader;
+import com.codewitme.readers.PropertiesReader;
 
 
 public class Hooks {
 
 	WebDriver driver;
-	PropertiesCache propReader;
+	PropertiesReader propReader;
 	
 	@BeforeClass
 	public void BeforeThisClass(){

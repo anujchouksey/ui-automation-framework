@@ -27,7 +27,7 @@ public class WelcomePage {
 		List<String> al = new ArrayList<String>();
 		List<WebElement>  elements=driver.findElement(passenger).findElements(By.tagName("option"));
 		for(WebElement element:elements){
-			al.add(element.getText());
+			al.add(element.getText().trim());
 		}
 		return al.toArray(new String[al.size()]);
 	}

@@ -9,10 +9,10 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.Set;
 
-public class PropertiesCache {
+public class PropertiesReader {
 	private final Properties configProp = new Properties();
 	   
-	   private PropertiesCache()
+	   private PropertiesReader()
 	   {
 	      InputStream in = this.getClass().getClassLoader().getResourceAsStream("QA.properties");
 	      System.out.println("Read all properties from file");
@@ -25,10 +25,10 @@ public class PropertiesCache {
 
 	   private static class LazyHolder
 	   {
-	      private static final PropertiesCache INSTANCE = new PropertiesCache();
+	      private static final PropertiesReader INSTANCE = new PropertiesReader();
 	   }
 
-	   public static PropertiesCache getInstance()
+	   public static PropertiesReader getInstance()
 	   {
 	      return LazyHolder.INSTANCE;
 	   }

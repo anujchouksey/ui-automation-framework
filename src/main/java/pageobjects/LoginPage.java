@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.codewitme.readers.PropertiesCache;
+import com.codewitme.readers.PropertiesReader;
 import com.codewitme.utilis.WebUtils;
 
 
@@ -40,7 +40,7 @@ public class LoginPage  {
 
 	public WelcomePage clickSignIn(){
 		WebElement signinElement = driver.findElement(signin);
-		WebUtils.click(new WebDriverWait(driver,Integer.parseInt(PropertiesCache.getInstance().getProperty("explicitTime"))), driver, signinElement);
+		WebUtils.click(new WebDriverWait(driver,10), driver, signinElement);
 		return new WelcomePage(driver);
 	}
 }
