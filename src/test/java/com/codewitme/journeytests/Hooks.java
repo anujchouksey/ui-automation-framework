@@ -27,14 +27,14 @@ public class Hooks {
 	}
 	@BeforeMethod
 	public void BeforeTest() throws IOException{
-		String browser=System.getProperty("browser");
+		String browserChoice=System.getProperty("browser");
 		System.out.println("BeforeTest");
 		String url=propReader.getInstance().getProperty("url");
-		if(browser.equalsIgnoreCase("FIREFOX"))
+		if(browserChoice.equalsIgnoreCase("FIREFOX"))
 		{
 			driver = new FirefoxDriver();
 		}
-		else if(browser.equalsIgnoreCase("CHROME")){
+		else if(browserChoice.equalsIgnoreCase("CHROME")){
 			driver = new ChromeDriver();
 		}
 		driver.get(url);

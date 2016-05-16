@@ -20,11 +20,21 @@
   		<version>1.1.4</version>
   	</dependency>
   	<dependency>
-  	<groupId>com.google.inject</groupId>
-    <artifactId>guice</artifactId>
-    <version>3.0</version>
-    <scope>test</scope>
+	  	<groupId>com.google.inject</groupId>
+	    <artifactId>guice</artifactId>
+	    <version>3.0</version>
+	    <scope>test</scope>
     </dependency>
+    <dependency>
+  		<groupId>org.apache.poi</groupId>
+  		<artifactId>poi</artifactId>
+  		<version>3.11</version>
+  	</dependency>
+  	<dependency>
+	    <groupId>org.apache.poi</groupId>
+	    <artifactId>poi-ooxml</artifactId>
+	    <version>3.11</version>
+	</dependency>
   </dependencies>
    <build>
   <plugins>
@@ -34,8 +44,9 @@
         <version>2.19.1</version>
         <configuration>
         <systemPropertyVariables>
-            <browser>${browserchoice}</browser>
+            <browser>${mybrowser}</browser>
             <webdriver.chrome.driver>src\test\resources\drivers\chromedriver.exe</webdriver.chrome.driver>
+            <env>${envChoice}.properties</env>
           </systemPropertyVariables>
           <suiteXmlFiles>
             <suiteXmlFile>src/test/resources/${suites}</suiteXmlFile>
@@ -50,7 +61,7 @@
                         <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter, com.codewitme.listeners.TestListener</value>
                     </property>
                 </properties>
-                <workingDirectory>target/</workingDirectory>
+               <!--  <workingDirectory>target/</workingDirectory> -->
         </configuration>
       </plugin>
       

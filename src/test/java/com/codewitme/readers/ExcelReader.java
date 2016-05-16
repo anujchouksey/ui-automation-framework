@@ -21,8 +21,8 @@ public String[][] getData(String sheetName) throws IOException{
 	FileInputStream file = new FileInputStream(new File(a));
 	XSSFWorkbook workbook = new XSSFWorkbook(file);
 	XSSFSheet sheet = workbook.getSheet(sheetName);
-	int rows=sheet.getPhysicalNumberOfRows();
-	int cols=sheet.getRow(1).getPhysicalNumberOfCells();
+	int rows=sheet.getPhysicalNumberOfRows();//Get number of rows
+	int cols=sheet.getRow(1).getPhysicalNumberOfCells();//Total number of columns/headers
 	String[][] srtArray=new String[rows-1][cols];
 	for (int i= 1 ; i < rows; i++) {
 		for (int j=0; j < cols; j++) {

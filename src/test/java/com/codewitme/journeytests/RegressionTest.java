@@ -32,7 +32,7 @@ public class RegressionTest extends Hooks{
 		Assert.assertEquals(actualPassengerList, expectedPassengerList);
 		
 	}
-	@Test(dataProvider="custLogin",enabled=false)
+	@Test(dataProvider="custLogin",enabled=true)
 	public void VerifySuccessfullMultipleLogin(String userName,String password) throws IOException{	
 		String[]expectedPassengerList = {"1","2","3","4"};
 		System.out.println("VerifySuccessfullLogin");
@@ -45,7 +45,7 @@ public class RegressionTest extends Hooks{
 		Assert.assertEquals(actualPassengerList, expectedPassengerList);
 		
 	}
-	@Test(dataProvider="allLinks",enabled=true)
+	@Test(dataProvider="allLinks",enabled=false)
 	public void VerifySuccessfullLinkClick(String text) throws IOException{	
 		driver.findElement(By.linkText(text)).click();
 		
