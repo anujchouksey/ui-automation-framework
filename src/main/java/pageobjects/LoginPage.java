@@ -5,11 +5,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.codewitme.readers.PropertiesReader;
-import com.codewitme.utilis.WebUtils;
 
 
-public class LoginPage  {
+public class LoginPage extends BasePage {
 
 	private WebDriver driver;
 	private By username = By.name("userName");
@@ -40,7 +38,7 @@ public class LoginPage  {
 
 	public WelcomePage clickSignIn(){
 		WebElement signinElement = driver.findElement(signin);
-		WebUtils.click(new WebDriverWait(driver,10), driver, signinElement);
+		click(new WebDriverWait(driver,10), driver, signinElement);
 		return new WelcomePage(driver);
 	}
 }
