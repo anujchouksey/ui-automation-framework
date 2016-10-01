@@ -49,7 +49,7 @@
             <env>${envChoice}.properties</env>
           </systemPropertyVariables>
           <suiteXmlFiles>
-            <suiteXmlFile>src/test/resources/${suites}</suiteXmlFile>
+            <suiteXmlFile>src/test/resources/suites/${suites}</suiteXmlFile>
           </suiteXmlFiles>
            <properties>
                     <property>
