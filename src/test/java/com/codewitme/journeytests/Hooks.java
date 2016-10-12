@@ -9,6 +9,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.log4testng.Logger;
 
 import com.codewitme.readers.ExcelReader;
 import com.codewitme.readers.PropertiesReader;
@@ -18,16 +19,18 @@ public class Hooks {
 
 	WebDriver driver;
 	PropertiesReader propReader;
+	final static Logger logger=Logger.getLogger(Hooks.class);
 	
 	@BeforeClass
 	public void BeforeThisClass(){
-		System.out.println("BeforeClass");
-		
-		
+		Boolean f = logger.isInfoEnabled();
+		logger.info("Executing Before class");
 	}
 	@BeforeMethod
 	public void BeforeTest() throws IOException{
 		String browserChoice=System.getProperty("browser");
+		Boolean f = logger.isInfoEnabled();
+		logger.info("Executing Before class");
 		System.out.println("BeforeTest");
 		String url=propReader.getInstance().getProperty("url");
 		if(browserChoice.equalsIgnoreCase("FIREFOX"))
